@@ -4,22 +4,14 @@ class BankAccount:
         self.lastname = lastname
         self.email = lastname+'.'+firstname+'@company.com'
         self.form_email = self.email.lower()
-        self.balance=[]
+        self.balance=0
         print("Hello!!! Welcome to the Deposit & Withdrawal Machine") 
   
     def deposit(self): 
         amount=float(input("Enter amount to be Deposited: ")) 
         self.balance += amount 
         print("\n Amount Deposited:",amount) 
-
-    # def deposit_amount(self, amount):
-    #     self.balance.append(amount)
-
-    # def total_balance():
-    #     for a in self.balance:
-    #         self.balance += a
-    #     print(self.balance)
-         
+     
     def withdraw(self): 
         amount = float(input("Enter amount to be Withdrawn: ")) 
         if self.balance>=amount: 
@@ -38,8 +30,7 @@ class BankAccount:
 # http://purcellconsult.com/bank-account-class-example-in-python/
 
 b = BankAccount('Benedict', 'Uwazie')
-# print(b.deposit())
-# print(b.deposit())
-# print(b.deposit())
-# print(b.deposit())
+b.deposit()
+b.withdraw()
+
 
