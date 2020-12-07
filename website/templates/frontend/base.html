@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>
         {% block title %}
-
         {% endblock %}
     </title>
     <link href="{% static 'frontend/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -26,19 +25,19 @@
       <header id="siteLogo">
         <div class="row">
           <div class="col-sm-3">
-            <a href="{% url 'index' %}">
-              <img src="{% static 'frontend/images/logo.png' %}">
+            <a href="index.html">
+              <img src="images/logo.png">
             </a>
           </div>
           <div class="col-sm-9">
             <span class="social-logo pull-right">
               <a href="#">
-                <img src="{% static 'frontend/images/fb.png' %}" class="img-circle">
+                <img src="images/fb.png" class="img-circle">
               </a>
               <a href="#">
-                <img src="{% static 'frontend/images/tw.png' %}" class="img-circle">
+                <img src="images/tw.png" class="img-circle">
               </a><a href="#">
-                <img src="{% static 'frontend/images/gp.png' %}" class="img-circle">
+                <img src="images/gp.png" class="img-circle">
               </a>
             </span>
           </div>
@@ -57,9 +56,9 @@
             </div>
             <div class="collapse navbar-collapse" id="mainNav">
               <ul class="nav navbar-nav">
-                  {% url 'index' as Home %}
-                  {% url 'frontend:about' as About %}
-                  {% url 'frontend:contact' as Contact %}
+                {% url 'index' as Home %}
+                {% url 'frontend:about' as About %}
+                {% url 'frontend:contact' as Contact %}
                 <li {% if request.path == Home %} class="active" {% endif %}><a href="{% url 'index' %}">Home</a></li>
                 <li {% if request.path == About %} class="active" {% endif %}><a href="{% url 'frontend:about' %}">About</a></li>
                 <li><a href="users.html">Users</a></li>
@@ -74,8 +73,8 @@
       </section>
       <!-- END OF SITE MENU -->
       {% block content %}
-
       {% endblock %}
+
     </div>
     <footer class="container-fluid" id="siteFooter">
       <div class="row">

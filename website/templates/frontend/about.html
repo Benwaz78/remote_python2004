@@ -2,8 +2,9 @@
 {% load static %}
 <!Doctype html>
 {% block title %}
-About
+About Us
 {% endblock %}
+
 {% block content %}
 <section id="sectionTitle">
   <div class="pageTitle">
@@ -17,21 +18,21 @@ About
       <div class="row">
         <div class="col-sm-4">
           <a href="detail.html">
-            <img src="{% static 'frontend/images/mark.jpg' %}" class="img-circle">
+            <img src="images/mark.jpg" class="img-circle">
           </a>
           <h2>Mark Zuckerbarg</h2>
           <a href="detail.html" class="btn btn-primary">Readmore</a>
         </div>
         <div class="col-sm-4">
           <a href="detail.html">
-            <img src="{% static 'frontend/images/jerry.jpg' %}" class="img-circle">
+            <img src="images/jerry.jpg" class="img-circle">
           </a>
           <h2>Jerry Jang</h2>
           <a href="detail.html" class="btn btn-primary">Readmore</a>
         </div>
         <div class="col-sm-4">
           <a href="detail.html">
-            <img src="{% static 'frontend/images/mayer.jpg' %}" class="img-circle">
+            <img src="images/mayer.jpg" class="img-circle">
           </a>
           <h2>Marrissa Mayer</h2>
           <a href="detail.html" class="btn btn-primary">Readmore</a>
@@ -65,9 +66,7 @@ About
         </div>
       </div>
     </div>
-      {% include 'frontend/sidebar.html' %}
-
-    <!-- END OF ASIDE CONTENT -->
+    {% include 'frontend/sidebar.html' %}
   </div>
 </section>
 {% endblock %}
