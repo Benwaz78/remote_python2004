@@ -59,10 +59,11 @@
                 {% url 'index' as Home %}
                 {% url 'frontend:about' as About %}
                 {% url 'frontend:contact' as Contact %}
+                {% url 'frontend:post_list' as PostList %}
                 <li {% if request.path == Home %} class="active" {% endif %}><a href="{% url 'index' %}">Home</a></li>
                 <li {% if request.path == About %} class="active" {% endif %}><a href="{% url 'frontend:about' %}">About</a></li>
                 <li><a href="users.html">Users</a></li>
-                <li><a href="post-list.html">Blog</a></li>
+                <li {% if request.path == PostList %} class="active" {% endif %}><a href="{% url 'frontend:post_list' %}">Blog</a></li>
                 <li><a href="login.html">Login</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li {% if request.path == Contact %} class="active" {% endif %}><a href="{% url 'frontend:contact' %}">Contact</a></li>

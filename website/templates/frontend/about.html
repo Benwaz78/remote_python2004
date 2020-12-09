@@ -16,52 +16,40 @@ About Us
   <div class="row">
     <div class="col-sm-9 text-center" id="mainContent">
       <div class="row">
-        <div class="col-sm-4">
-          <a href="detail.html">
-            <img src="images/mark.jpg" class="img-circle">
-          </a>
-          <h2>Mark Zuckerbarg</h2>
-          <a href="detail.html" class="btn btn-primary">Readmore</a>
-        </div>
-        <div class="col-sm-4">
-          <a href="detail.html">
-            <img src="images/jerry.jpg" class="img-circle">
-          </a>
-          <h2>Jerry Jang</h2>
-          <a href="detail.html" class="btn btn-primary">Readmore</a>
-        </div>
-        <div class="col-sm-4">
-          <a href="detail.html">
-            <img src="images/mayer.jpg" class="img-circle">
-          </a>
-          <h2>Marrissa Mayer</h2>
-          <a href="detail.html" class="btn btn-primary">Readmore</a>
-        </div>
+        {% if abt %}
+          {% for a in abt %}
+            <div class="col-sm-4">
+              <a href="detail.html">
+                <img src="{{ a.profile_img }}" class="img-circle">
+              </a>
+              <h2>{{ a.name }}</h2>
+              <a href="{% url 'frontend:about_detail' a.id %}" class="btn btn-primary">Readmore</a>
+            </div>
+          {% endfor %}
+        {% endif %}
+        
+        
       </div>
       <div class="row">
         <div class="col-sm-12 text-left">
           <h3>Operating Staff</h3>
           <table class="table">
             <tr>
+              <th>S/N</th>
               <th>Firstname</th>
               <th>Lastname</th>
               <th>Email</th>
             </tr>
-            <tr>
-              <td>John</td>
-              <td>Doe</td>
-              <td>john.doe@email.com</td>
-            </tr>
-            <tr>
-              <td>Slim</td>
-              <td>Brim</td>
-              <td>slim.brin@email.com</td>
-            </tr>
-            <tr>
-              <td>Kashamawu</td>
-              <td>Idris</td>
-              <td>kashamawu.idris@email.com</td>
-            </tr>
+            {% if user %}
+              {% for u in user %}
+                <tr>
+                  <td>{{ forloop.counter }}</td>
+                  <td>{{ u.first_name }}</td>
+                  <td>{{ u.last_name }}</td>
+                  <td>{{ u.email }}</td>
+                </tr>
+              {% endfor %}
+            {% endif %}
           </table>
         </div>
       </div>

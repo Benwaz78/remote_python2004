@@ -6,6 +6,10 @@ from django.contrib.auth.models import User
 class UserProfile(models.Model):
     age = models.PositiveIntegerField()
     website = models.URLField(blank=True, null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.username
 
 class Category(models.Model):
     cat_name = models.CharField(max_length=100, verbose_name='Category Name')
@@ -19,11 +23,38 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    pst_title = models.CharField(max_length=150)
-    pst_image = models.ImageField(null=True, blank=True, upload_to='uploads/')
+    pst_title = models.CharField(max_length=150, verbose_name='Post Title')
+    pst_image = models.ImageField(null=True, verbose_name='Post Image', blank=True, upload_to='uploads/')
     content = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    cat_id = models.ManyToManyField(Category)
+    cat_id = models.ManyToManyField(Category, verbose_name='Category')
     date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.pst_title
+
+    class Meta():
+        verbose_name_plural = 'Post'
+
+    def post_img(self):
+        if self.pst_image:
+          return self.pst_image.url
+
+
+class About(models.Model):
+    name = models.CharField(max_length=150)
+    profile = models.ImageField(blank=True, null=True, upload_to='uploads/')
+    content = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+    def profile_img(self):
+        if self.profile:
+          return self.profile.url
+        return '/media/uploads/avatar.png'
+
+    class Meta():
+        verbose_name_plural='About'
 
 
