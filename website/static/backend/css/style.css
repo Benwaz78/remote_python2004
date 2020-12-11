@@ -1,0 +1,19 @@
+
+#sideBar{
+	height: 100vh !important;
+}
+
+#topBar{
+	height: 50px;
+	background-color: #282828;
+}
+
+#topCollapse{
+	display: inline-block;
+	float: right;
+}
+
+#topCollapse a{
+	display: block;
+	width: 8rem;
+}

@@ -17,7 +17,12 @@ Contact
     <div class="col-sm-9 text-center" id="mainContent">
       <div class="row">
         <div class="col-sm-12">
-          <form action="#" class="form" method="post" enctype="multipart/form-data">
+          <form  class="form" method="post">
+            {% if messages %}
+              {% for m in messages %}
+                <div class="alert alert-success">{{ m }}</div>
+              {% endfor %}
+            {% endif %}
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
@@ -38,7 +43,7 @@ Contact
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="labelEmail">Email</label>
-                  <input type="text" name="subject" id="labelEmail" class="form-control" placeholder="Your Email">
+                  <input type="email" name="email" id="labelEmail" class="form-control" placeholder="Your Email">
                 </div>
               </div>
               <!-- END OF EMAIL -->
@@ -74,14 +79,14 @@ Contact
             <!-- END OF GENDER -->
 
             <!-- FILE UPLOAD -->
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-sm-12">
                 <div class="form-group">
                   <label>Upload File</label>
                   <input type="file" name="upload" class="form-control">
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- END OF FILE UPLOAD -->
             <div class="row">
               <div class="col-sm-12">
@@ -92,6 +97,7 @@ Contact
               </div>
               <input type="submit" name="send" value="Send" class="btn btn-primary">
             </div>
+            {% csrf_token %}
           </form>
         </div>
       </div>

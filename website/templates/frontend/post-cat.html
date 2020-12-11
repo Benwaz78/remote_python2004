@@ -8,15 +8,15 @@ Post Lists
 {% block content %}
 <section id="sectionTitle">
   <div class="pageTitle">
-    <h1>5 Post From Sports Category</h1>
+    <h1>{{ counts }} Post From {{ cat.cat_name }} Category</h1>
   </div>
 </section>
 <!-- END OF PAGE TITLE -->
 <section id="content">
   <div class="row">
     <div class="col-sm-9" id="mainContent">
-      {% if pst %}
-        {% for p in pst %}
+      {% if posts %}
+        {% for p in posts %}
             <div class="row">
               <div class="col-md-4 col-sm-4">
                 <div class="thumbnail">
@@ -26,10 +26,10 @@ Post Lists
               <div class="col-md-8 col-sm-8">
                 <div class="blog-content">
                   <p>
-                    Time:{{p.date|date:'H:ma' }}, Category:
-                    {% for c in p.cat_id.all %}
+                    Time:{{p.date|date:'H:ma' }}
+                    <!-- {% for c in p.cat_id.all %}
                         <a href="{% url 'frontend:post_from_cat' c.id  %}">{{ c.cat_name }},</a>
-                    {% endfor %}
+                    {% endfor %} -->
                     Posted By: <a href="#">{{ p.user.first_name }}</a>.
             
                   </p>
