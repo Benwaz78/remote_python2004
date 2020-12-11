@@ -1,0 +1,47 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+  <section id="sectionTitle">
+    <div class="pageTitle">
+      <h1>Login</h1>
+    </div>
+  </section>
+  <!-- END OF PAGE TITLE -->
+  <section id="content">
+    <div class="row">
+      <div class="col-sm-9 text-center" id="mainContent">
+        <div class="row">
+          <div class="col-sm-12">
+            <form class="form" method="post">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="labelName">Username</label>
+                    <input type="text" name="username" id="labelUsername" placeholder="Your Userename"
+                      class="form-control">
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="labelPassword">Password</label>
+                    <input type="password" name="password" id="labelPassword" placeholder="Your Password"
+                      class="form-control">
+                  </div>
+                </div>
+  
+              </div>
+              <input type="submit" class="btn btn-warning" value="Login">
+            </form>
+          </div>
+        </div>
+  
+      </div>
+      {% include 'frontend/login.html' %}
+      <!-- END OF ASIDE CONTENT -->
+    </div>
+  </section>
+{% endblock %}

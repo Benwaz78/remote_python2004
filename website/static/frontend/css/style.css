@@ -1,0 +1,155 @@
+body{
+	font-family: arial, verdana, sans-serif;
+	font-size:15px;
+	background-color:#ddd;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-weight: bold;
+}
+
+h1{
+	font-size:28px;
+}
+
+.container{
+	width:83%;
+	background-color:#fff;
+	padding-bottom: 20px;
+}
+
+.social-logo{
+	margin-top: 25px;
+	display: inline-block;
+}
+
+.social-logo a{
+	display: inline-block;
+	margin-right: 15px;
+}
+
+#siteMenu .navbar{
+	margin-top: 15px;
+	margin-bottom: 0;
+	border-radius:0;
+	background-color:blue;
+	border-color:blue;
+}
+
+#mainNav .navbar-nav .active a{
+	background-color:orange;
+}
+
+#mainNav .navbar-nav a{
+	color:#fff;
+	font-weight: bold;
+}
+
+#banner{
+	background: url(../images/banner.jpg) no-repeat;
+	background-size: cover;
+	height:450px;
+}
+
+#banner .caption{
+	margin-top: 50%;
+}
+
+.btn-primary{
+	background-color:blue;
+	border-color:blue;
+	border-radius:13px;
+}
+
+.page-header h1{
+	font-size:30px;
+	font-weight: bold;
+}
+
+#services .fa{
+	font-size:45px;
+}
+
+/*ABOUT STYLING STARTS HERE*/
+
+#sectionTitle{
+	background-color:#ddd;
+	padding:30px 15px;
+	margin: 10px 0;
+	border-radius:20px;
+}
+
+#mainContent img{
+	width:100%;
+	height:auto;
+}
+.img-div{
+	width: 350px;
+	height: 350px;
+	margin: auto;
+}
+
+.contain-img{
+	background-color: #EAE8E8;
+	padding: 20px;
+	box-sizing: border-box;
+}
+#detailContent img{
+	width: 100%;
+	height: auto;
+}
+
+#mainContent h2{
+	font-size:24px;
+}
+
+#mainContent .fa{
+	font-size:40px;
+}
+
+
+/*ABOUT STYLING ENDS HERE*/
+
+/*CONTACT US STYLING*/
+
+#mainContent .form{
+	text-align: left;
+}
+
+.widget .nav li{
+	border-bottom: 1px solid #ddd;
+}
+
+.widget .nav li a{
+	color:#000;
+}
+
+.widget .nav li a:hover{
+	background-color:#fff;
+}
+
+/*CONTACT US STYLING ENDS HERE*/
+
+#siteFooter{
+	background-color:#000;
+	color:#fff;
+	border-top:3px solid blue;
+	box-shadow:0 -6px 15px blue;
+}
+
+#siteFooter .row{
+	padding:0 40px;
+}
+
+#siteFooter .nav li a{
+	color:#fff;
+}
+
+#siteFooter .nav li a:hover{
+	background-color:#000;
+}
+
+.copy a{
+	color:yellow;
+	font-weight: bold;
+}

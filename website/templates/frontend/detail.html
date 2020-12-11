@@ -1,0 +1,37 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+<!Doctype html>
+{% block title %}
+Detail
+{% endblock %}
+
+{% block content %}
+  <section id="sectionTitle">
+    <div class="pageTitle">
+      <h1>About Us</h1>
+    </div>
+  </section>
+  <!-- END OF PAGE TITLE -->
+  <section id="content">
+    <div class="row">
+      <div class="col-sm-9 text-center" id="detailContent">
+        {% if det %}
+          <div class="contain-img">
+            <div class="img-div">
+              <img src="{{ det.profile_img }}" class="img-responsive">
+            </div>
+          </div>
+          <div class="detail-content">
+            <h2>{{ det.name }}</h2>
+            <p>
+              {{ det.content }}
+            </p>
+          </div>
+        {% endif %}
+        
+  
+      </div>
+     {% include 'frontend/sidebar.html' %}
+    </div>
+  </section>
+{% endblock %}
