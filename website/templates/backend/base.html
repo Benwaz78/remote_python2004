@@ -25,12 +25,16 @@
   <body>
   	<div class="container-fluid">
   		<div class="row">
-  			{% include 'backend/sidebar.html' %}
+			{% if request.user.is_staff %}
+  				{% include 'backend/sidebar.html' %}
+			{% else %}
+				{% include 'backend/user-sidebar.html' %}
+			{% endif %}
   			<div class="col-sm-10">
   				<div class="row">
   					<div class="col-sm-12  pt-4 pb-4" id="topBar">
   						<a class="text-white">
-  							<span class="float-right name">Uwazie Benedict</span>
+  							<span class="float-right name">{{ request.user.get_full_name }}</span>
   						</a>
   					</div>
 				  </div>

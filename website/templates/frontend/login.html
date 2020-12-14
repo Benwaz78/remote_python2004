@@ -17,6 +17,11 @@ Login
         <div class="row">
           <div class="col-sm-12">
             <form class="form" method="post">
+              {% if messages %}
+                {% for mes in messages %}
+                  <div class="alert {{ mes.tags }}">{{ mes }}</div>
+                {% endfor %}
+              {% endif %}
               <div class="row">
                 <div class="col-sm-12">
                   <div class="form-group">
