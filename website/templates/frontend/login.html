@@ -35,12 +35,13 @@ Login
   
               </div>
               <input type="submit" class="btn btn-warning" value="Login">
+              {% csrf_token %}
             </form>
           </div>
         </div>
   
       </div>
-      {% include 'frontend/login.html' %}
+      {% include 'frontend/sidebar.html' %}
       <!-- END OF ASIDE CONTENT -->
     </div>
   </section>
