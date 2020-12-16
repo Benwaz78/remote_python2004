@@ -14,7 +14,8 @@ from django.contrib import messages
 # Create your views here.
 
 def index(request):
-    return render(request, 'frontend/index.html')
+    latest_post = Post.objects.order_by('-date')[:3]
+    return render(request, 'frontend/index.html', {'latest':latest_post})
 
 def about(request):
     about = About.objects.all()

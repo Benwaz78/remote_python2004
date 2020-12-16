@@ -1,0 +1,26 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+{% block title %}
+Add Category
+{% endblock %}
+
+{% block content %}
+{% if post.instance.pk %}
+<h2>Edit Post</h2>
+{% else %}
+<h2>Add Post</h2>
+{% endif %}
+
+
+<form method="post" enctype="multipart/form-data">
+    {{ post }}
+    {% csrf_token %}
+    {% if post.instance.pk %}
+        <button type="submit" class="btn btn-warning">Edit Post</button>
+    {% else %}
+        <button type="submit" class="btn btn-warning">Add Post</button>
+    {% endif %}
+
+</form>
+{% endblock %}
