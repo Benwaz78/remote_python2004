@@ -15,7 +15,7 @@ Add Category
 
 <form method="post" enctype="multipart/form-data">
    
-    {% include 'backend/form-snippet.html'  with form=post %}
+    {% include 'backend/form-snippet.html'  with form=form %}
     {% if post.instance.pk %}
         <button type="submit" class="btn btn-warning">Edit Post</button>
     {% else %}

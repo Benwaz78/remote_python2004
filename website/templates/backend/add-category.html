@@ -9,10 +9,7 @@ Add Category
 <h2>Add Category</h2>
 
 <form method="post">
-    {{ cat }}
-    
-    {% csrf_token %}
+   {% include 'backend/form-snippet.html' with form=cat %}
     <button type="submit" class="btn btn-warning">Add Category</button>
-
 </form>
 {% endblock %}

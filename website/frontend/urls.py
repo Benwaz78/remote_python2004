@@ -1,5 +1,6 @@
 from django.urls import path
 from frontend import views
+from frontend import api2
 
 app_name = 'frontend'
 
@@ -11,4 +12,6 @@ urlpatterns = [
     path('post-category/<int:category_id>/',
          views.post_from_cat, name='post_from_cat'),
     path('contact-page/', views.contact, name='contact'),
+    path('api-data/', api2.api_data, name='api2'),
+
 ]
