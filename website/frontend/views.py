@@ -3,6 +3,7 @@ from frontend.models import *
 from django.contrib.auth.models import User
 from django.core.exceptions import ObjectDoesNotExist
 
+
 from django.core import mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
@@ -13,7 +14,8 @@ from django.contrib import messages
 # Create your views here.
 
 def index(request):
-    return render(request, 'frontend/index.html')
+    latest_post = Post.objects.order_by('-date')[:3]
+    return render(request, 'frontend/index.html', {'latest':latest_post})
 
 def about(request):
     about = About.objects.all()
@@ -66,7 +68,7 @@ def contact(request):
         }
         html_message = render_to_string('frontend/mail-template.html', context)
         plain_message = strip_tags(html_message)
-        from_email = 'From <chidieberendubuisi105@gmail.com>'
+        from_email = 'From <slimchibenedict@gmail.com>'
         send = mail.send_mail(subject, plain_message, from_email, [
                     'uwazie.benedict@alabiansolutions.com', 'nonwaz@yahoo.com'], html_message=html_message)
         if send:

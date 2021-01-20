@@ -17,6 +17,11 @@ Login
         <div class="row">
           <div class="col-sm-12">
             <form class="form" method="post">
+              {% if messages %}
+                {% for mes in messages %}
+                  <div class="alert {{ mes.tags }}">{{ mes }}</div>
+                {% endfor %}
+              {% endif %}
               <div class="row">
                 <div class="col-sm-12">
                   <div class="form-group">
@@ -35,12 +40,13 @@ Login
   
               </div>
               <input type="submit" class="btn btn-warning" value="Login">
+              {% csrf_token %}
             </form>
           </div>
         </div>
   
       </div>
-      {% include 'frontend/login.html' %}
+      {% include 'frontend/sidebar.html' %}
       <!-- END OF ASIDE CONTENT -->
     </div>
   </section>

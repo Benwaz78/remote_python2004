@@ -61,6 +61,7 @@
                 {% url 'frontend:contact' as Contact %}
                 {% url 'frontend:post_list' as PostList %}
                 {% url 'backend:login_view' as Login %}
+                {% url 'backend:register_form' as RegisterForm %}
                 <li {% if request.path == Home %} class="active" {% endif %}><a href="{% url 'index' %}">Home</a></li>
                 <li {% if request.path == About %} class="active" {% endif %}><a href="{% url 'frontend:about' %}">About</a></li>
                 <li><a href="users.html">Users</a></li>
@@ -69,6 +70,7 @@
                 <li><a href="{% url 'frontend:post_from_cat' cat.id %}">{{ cat.cat_name }}</a></li>
                 {% endfor %}
                 <li {% if request.path == Login %} class="active" {% endif %}><a href="{% url 'backend:login_view' %}">Login</a></li>
+                <li {% if request.path == RegisterForm %} class="active" {% endif %}><a href="{% url 'backend:register_form' %}">Register</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li {% if request.path == Contact %} class="active" {% endif %}><a href="{% url 'frontend:contact' %}">Contact</a></li>
               </ul>

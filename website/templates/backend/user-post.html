@@ -1,0 +1,49 @@
+{% extends 'backend/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+{% block title %}
+View Post
+{% endblock %}
+
+{% block content %}
+<h2>View Post</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>S/N</th>
+        <th>Post Title</th>
+        <th>Post Content</th>
+        <th>Post Image</th>
+        <th>Date</th>
+        <th>Posted By</th>
+        <th>Category</th>
+        <th colspan="3">Action</th>
+    </tr>
+    {% if list_user_posts %}
+        {% for l in list_user_posts %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ l.pst_title }}</td>
+                <td>{{ l.content|truncatewords:30 }}</td>
+                <td><img src="{{ l.post_img }}" width="50" height="50" alt=""></td>
+                <td>{{ l.date  }}</td>
+                <td>{{ l.user.username  }}</td>
+                <td>
+                    {% for c in l.cat_id.all %}
+                        {{ c.cat_name }}
+                    {% endfor %}
+                </td>
+                <td>
+                    <a href="{% url 'backend:edit_post' l.id %}">Edit</a>
+                </td>
+                <td>
+                    <a href="">View</a>
+                </td>
+                <td>
+                    <a href="{% url 'backend:delete_post' l.id %}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+</table>
+{% endblock %}

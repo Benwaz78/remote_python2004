@@ -72,49 +72,30 @@ Home
     <h1>Latest News</h1>
   </div>
   <div class="row">
-    <div class="col-sm-4">
-      <img src="images/blog-img1.jpg" class="img-responsive">
-      <p>
-        Time:8:30am, Category:<a href="sport.html">Sport.</a>.
-        Posted By: <a href="#">Alabi</a>.
-
-      </p>
-      <h3>Mark Zuckerberg is the sixth richest Man</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti esse harum perferendis, dolorum dicta non,
-        eos. Aliquid voluptate qui quo! Omnis ex modi expedita natus et eum aut excepturi facere!
-      </p>
-      <a href="single-blog.html" class="btn btn-success">Readmore</a>
-    </div>
-    <div class="col-sm-4">
-      <img src="images/blog-img2.jpg" class="img-responsive">
-      <p>
-        Time:8:30am, Category:<a href="sport.html">Sport.</a>.
-        Posted By: <a href="#">Alabi</a>.
-
-      </p>
-      <h3>Mark Zuckerberg is the sixth richest Man</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti esse harum perferendis, dolorum dicta non,
-        eos. Aliquid voluptate qui quo! Omnis ex modi expedita natus et eum aut excepturi facere!
-      </p>
-      <a href="single-blog.html" class="btn btn-success">Readmore</a>
-    </div>
-    <div class="col-sm-4">
-      <img src="images/blog-img3.jpg" class="img-responsive">
-      <p>
-        Time:8:30am, Category:<a href="sport.html">Sport.</a>.
-        Posted By: <a href="#">Alabi</a>.
-
-      </p>
-      <h3>Mark Zuckerberg is the sixth richest Man</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti esse harum perferendis, dolorum dicta non,
-        eos. Aliquid voluptate qui quo! Omnis ex modi expedita natus et eum aut excepturi facere!
-      </p>
-      <a href="single-blog.html" class="btn btn-success">Readmore</a>
-    </div>
-
+    {% if latest %}
+      {% for l in latest %}
+          <!-- {% if l.appear_home == 'Feature' %} -->
+          <div class="col-sm-4">
+            <img src="{{ l.post_img }}" class="img-responsive">
+            <p>
+              Time:{{ l.date }}, Category: 
+              {% for c in l.cat_id.all  %}
+                   <a href="{% url 'frontend:post_from_cat' c.id %}">{{ c.cat_name }}</a>.
+              {% endfor %}
+              Posted By: <a href="#">{{ l.user.first_name }}</a>.
+          
+            </p>
+            <h3>{{ l.pst_title }}</h3>
+            <p>
+              {{ l.content|truncatewords:30 }}
+            </p>
+            <a href="{% url 'frontend:single_post' l.id %}" class="btn btn-success">Readmore</a>
+          </div>
+          
+          <!-- {% endif %} -->
+      {% endfor %}
+    {% endif %}
+  
   </div>
 </section>
 {% endblock %}

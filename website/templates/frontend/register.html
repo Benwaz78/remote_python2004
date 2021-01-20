@@ -1,0 +1,37 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% block title %}
+Register
+{% endblock %}
+
+{% block content %}
+  <section id="sectionTitle">
+    <div class="pageTitle">
+      <h1>Register</h1>
+    </div>
+  </section>
+  <!-- END OF PAGE TITLE -->
+  <section id="content">
+    <div class="row">
+      <div class="col-sm-9 text-center" id="mainContent">
+        <div class="row">
+          <div class="col-sm-12">
+            <form class="form" method="post">
+              {% if messages %}
+                {% for mes in messages %}
+                  <div class="alert {{ mes.tags }}">{{ mes }}</div>
+                {% endfor %}
+              {% endif %}
+              {{ reg }}
+              <input type="submit" class="btn btn-warning" value="Register">
+              {% csrf_token %}
+            </form>
+          </div>
+        </div>
+  
+      </div>
+      {% include 'frontend/sidebar.html' %}
+      <!-- END OF ASIDE CONTENT -->
+    </div>
+  </section>
+{% endblock %}
